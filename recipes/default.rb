@@ -20,8 +20,9 @@
 
 include_recipe 'chef_handler'
 
-handler = File.join(node['chef_handler']['handler_path'], 'reboot.rb')
-cookbook_file(handler).run_action(:create)
+chef_gem 'chef-reboot-handler' do
+  source 'https://raw.githubusercontent.com/emiddleton/cookbook-reboot-handler/master/chef-reboot-handler-1.0.2.gem'
+end
 
 ##
 # This was primarily done to prevent others from having to stub
