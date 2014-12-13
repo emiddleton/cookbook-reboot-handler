@@ -26,6 +26,7 @@ class Chef
       def report
         return unless success?
         return unless should_reboot?
+        Chef::Log.debug("reboot -> runlist #{node['reboot-handler']['post_boot_runlist']}")
         post_boot_runlist if post_boot_runlist?
 
         Mixlib::ShellOut.new(node['reboot-handler']['command']).run_command
