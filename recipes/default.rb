@@ -20,9 +20,7 @@
 
 include_recipe 'chef_handler'
 
-chef_gem 'chef-reboot-handler' do
-  source 'https://raw.githubusercontent.com/emiddleton/cookbook-reboot-handler/master/chef-reboot-handler-1.0.2.gem'
-end
+chef_gem 'https://raw.githubusercontent.com/emiddleton/cookbook-reboot-handler/master/chef-reboot-handler-1.0.2.gem'
 
 ##
 # This was primarily done to prevent others from having to stub
