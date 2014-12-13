@@ -24,8 +24,10 @@ class Chef
       end
 
       def report
+        Chef::Log.debug("running chef reboot handler")
         return unless success?
         return unless should_reboot?
+        Chef::Log.debug("actually running chef reboot handler")
         unless Chef::Config[:solo]
           post_boot_runlist if post_boot_runlist?
         end
