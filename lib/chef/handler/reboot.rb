@@ -10,10 +10,6 @@ class Chef
         run_status.success?
       end
 
-      def enabled?
-        node.roles.include? node['reboot-handler']['enabled_role']
-      end
-
       def should_reboot?
         node.run_state['reboot']
       end
@@ -29,7 +25,6 @@ class Chef
 
       def report
         return unless success?
-        #return unless enabled?
         return unless should_reboot?
         post_boot_runlist if post_boot_runlist?
 
