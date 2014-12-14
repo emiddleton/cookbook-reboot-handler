@@ -33,7 +33,7 @@ class Chef
         end
 
         Mixlib::ShellOut.new(node['reboot-handler']['command']).run_command
-        Chef::Resource::Service("sshd").run_command(:stop)
+        Mixlib::ShellOut.new("/etc/init.d/sshd stop").run_command
       end
     end
   end
